@@ -1,0 +1,27 @@
+<h2>Nouveau héro</h2>
+<div>
+  <form [formGroup]="formHero" (ngSubmit)="onSubmit()">
+    <label>
+      Nom:
+      <input type="text" formControlName="nom"/>
+    </label>
+    <label>
+      Attaque:
+      <input type="number" formControlName="attaque"/>
+    </label>
+    <label>
+      Esquive:
+      <input type="number" formControlName="esquive"/>
+    </label>
+    <label>
+      Dégats:
+      <input type="number" formControlName="degats"/>
+    </label>
+    <label>
+      Point de vie:
+      <input type="number" formControlName="pv"/>
+    </label>
+    <button type="submit" [disabled]="!formHero.valid">Créer</button>
+  </form>
+</div>
+
