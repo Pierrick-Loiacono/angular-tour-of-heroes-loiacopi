@@ -50,3 +50,12 @@
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
+
+li a{
+  color: #1b1e21;
+  text-decoration: none; /* no underline */
+}
+
+li {
+  list-style: none;
+}

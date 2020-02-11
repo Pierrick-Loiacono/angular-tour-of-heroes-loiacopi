@@ -1,13 +1,12 @@
 <h2>Les armes</h2>
 <!-- Liste des héros -->
-<ul class="heroes">
+<ul class="list-group list-group-flush">
   <li *ngFor="let weapon of weapons">
-    <a routerLink="/detail/{{weapon.id}}">
-      <span class="badge">{{weapon.id}}</span> {{weapon.name}}
+    <a class="list-group-item list-group-item-action" routerLink="/detail/{{weapon.id}}">
+      {{weapon.name}}
     </a>
   </li>
 </ul>
-
 <a routerLink="/weapons/new">Créer une arme</a>
 
 
