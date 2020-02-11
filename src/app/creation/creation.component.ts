@@ -32,17 +32,15 @@ export class CreationComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Action effectuée à l'envoie du formulaire
   onSubmit() {
     const hero = new Hero();
-    hero.id = 99;
-    hero.name = 'plop';
-    this.heroService.add(hero);
-    // hero.name = 'plo';
-    // HEROES.push();
-    // alert(this.formHero.get('nom').value + ' ' +
-    //   this.formHero.get('attaque').value + ' ' +
-    //   this.formHero.get('esquive').value + ' ' +
-    //   this.formHero.get('pv').value + ' ' +
-    //   this.formHero.get('degats').value);
+    // hero.id = '99';
+    hero.name = this.formHero.get('nom').value;
+    hero.attaque = this.formHero.get('attaque').value;
+    hero.degats = this.formHero.get('degats').value;
+    hero.esquive = this.formHero.get('esquive').value;
+    hero.pv = this.formHero.get('pv').value;
+    this.heroService.addHero(hero);
   }
 }

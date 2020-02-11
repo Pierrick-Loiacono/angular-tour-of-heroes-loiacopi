@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "angular-tour-of-heroes-loiacopi",
+      "public": "dist/angular-tour-of-heroes-loiacopi",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

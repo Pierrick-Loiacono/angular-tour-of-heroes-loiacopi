@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tohloiacopi": {
+      "hosting": {
+        "angular-tour-of-heroes-loiacopi": [
+          "tohloiacopi"
+        ]
+      }
+    }
+  }
+}

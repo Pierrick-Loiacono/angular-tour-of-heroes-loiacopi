@@ -1,5 +1,5 @@
 <h2>My Heroes</h2>
-
+<!-- Liste des héros -->
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
@@ -8,7 +8,7 @@
   </li>
 </ul>
 
-<a routerLink="/new">Créer un héro</a>
+<a routerLink="/heroes/new">Créer un héro</a>
 
 
 <!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->

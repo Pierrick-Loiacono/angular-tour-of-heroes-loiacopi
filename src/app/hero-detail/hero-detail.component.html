@@ -2,9 +2,21 @@
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
   <div>
-    <label>name:
+    <label>Name:
       <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
+    </label><br>
+    <label>Attaque:
+      <input [(ngModel)]="hero.attaque" placeholder="name"/>
+    </label><br>
+    <label>Dégats:
+      <input [(ngModel)]="hero.degats" placeholder="name"/>
+    </label><br>
+    <label>Esquive:
+      <input [(ngModel)]="hero.esquive" placeholder="name"/>
+    </label><br>
+    <label>PV:
+      <input [(ngModel)]="hero.pv" placeholder="name"/>
+    </label><br>
   </div>
   <button (click)="goBack()">go back</button>
 </div>
