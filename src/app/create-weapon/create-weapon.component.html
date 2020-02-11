@@ -1,7 +1,6 @@
-<h2>Nouveau héro</h2>
+<h2>Nouvelle arme</h2>
 <div class="container-fluid">
-  <p>Points de compétence restant : </p>
-  <form [formGroup]="formHero" (ngSubmit)="onSubmit()">
+  <form [formGroup]="formWeapon" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label>
         Nom
@@ -32,7 +31,7 @@
         <input type="number" min="0" class="form-control" formControlName="pv">
       </label>
     </div>
-    <button type="submit" [disabled]="!formHero.valid">Créer</button>
+    <button type="submit" [disabled]="!formWeapon.valid">Créer</button>
   </form>
 </div>
 

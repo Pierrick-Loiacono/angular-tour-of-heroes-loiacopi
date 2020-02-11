@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Hero } from '../data/hero';
-import { HEROES } from '../data/mock-heroes';
-import {HeroService} from '../service/hero.service';
+import { HeroService } from '../service/hero.service';
+
 
 @Component({
   selector: 'app-creation',
@@ -27,7 +28,7 @@ export class CreationComponent implements OnInit {
   //   age: new FormControl(''),
   // });
 
-  constructor(private form: FormBuilder, private heroService: HeroService) { }
+  constructor(private form: FormBuilder, private heroService: HeroService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,12 +36,13 @@ export class CreationComponent implements OnInit {
   // Action effectuée à l'envoie du formulaire
   onSubmit() {
     const hero = new Hero();
-    // hero.id = '99';
     hero.name = this.formHero.get('nom').value;
     hero.attaque = this.formHero.get('attaque').value;
     hero.degats = this.formHero.get('degats').value;
     hero.esquive = this.formHero.get('esquive').value;
     hero.pv = this.formHero.get('pv').value;
     this.heroService.addHero(hero);
+    this.router.navigate(['/heroes']);
   }
+
 }

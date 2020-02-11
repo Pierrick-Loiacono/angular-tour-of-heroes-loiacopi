@@ -48,9 +48,6 @@ export class HeroService {
             const id = item.payload.doc.id;
             hero.id = id;
 
-            // log
-            console.log('   hero ' + id);
-
             // Use spread operator to add the id to the document data
             return hero;
 

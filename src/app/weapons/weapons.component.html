@@ -1,0 +1,14 @@
+<h2>Les armes</h2>
+<!-- Liste des héros -->
+<ul class="heroes">
+  <li *ngFor="let weapon of weapons">
+    <a routerLink="/detail/{{weapon.id}}">
+      <span class="badge">{{weapon.id}}</span> {{weapon.name}}
+    </a>
+  </li>
+</ul>
+
+<a routerLink="/weapons/new">Créer une arme</a>
+
+
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
