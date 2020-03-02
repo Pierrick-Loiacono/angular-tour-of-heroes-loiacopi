@@ -10,25 +10,25 @@
     <div class="form-group">
       <label>
         Attaque
-        <input type="number" min="0" class="form-control" formControlName="attaque">
+        <input type="number" min="-5" class="form-control" formControlName="attaque">
       </label>
     </div>
     <div class="form-group">
       <label>
         Dégats
-        <input type="number" min="0" class="form-control" formControlName="degats">
+        <input type="number" min="-5" class="form-control" formControlName="degats">
       </label>
     </div>
     <div class="form-group">
       <label>
         Esquive
-        <input type="number" min="0" class="form-control" formControlName="esquive">
+        <input type="number" min="-5" class="form-control" formControlName="esquive">
       </label>
     </div>
     <div class="form-group">
       <label>
         PV
-        <input type="number" min="0" class="form-control" formControlName="pv">
+        <input type="number" min="-5" class="form-control" formControlName="pv">
       </label>
     </div>
     <button type="submit" [disabled]="!formWeapon.valid">Créer</button>
