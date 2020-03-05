@@ -1,12 +1,32 @@
 <h2>Les héros !</h2>
 <!-- Liste des héros -->
-<ul class="list-group list-group-flush">
-  <li *ngFor="let hero of heroes">
-    <a class="list-group-item list-group-item-action" routerLink="/detail/{{hero.id}}">
-      {{hero.name}}
-    </a>
-  </li>
-</ul>
+<!--<ul class="list-group list-group-flush">-->
+<!--  <li *ngFor="let hero of heroes">-->
+<!--    <a class="list-group-item list-group-item-action" routerLink="/detail/{{hero.id}}">-->
+<!--      {{hero.name}}-->
+<!--    </a>-->
+<!--  </li>-->
+<!--</ul>-->
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Nom</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let hero of heroes">
+    <td>
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}</a>
+    </td>
+    <td>
+      <button (click)="delete(hero.id)">Supprimer</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
 <a routerLink="/heroes/new">Créer un héro</a>
 

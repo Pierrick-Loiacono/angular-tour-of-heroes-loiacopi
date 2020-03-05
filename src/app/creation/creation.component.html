@@ -32,7 +32,10 @@
         <input type="number" min="1" max="{{restant + this.formHero.get('pv').value}}" class="form-control" formControlName="pv">
       </label>
     </div>
+    <div *ngIf="restant > 0"> Il reste des points à attribuer</div>
     <button type="submit" name="creer" [disabled]="!formHero.valid">Créer</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+
   </form>
 </div>
 
