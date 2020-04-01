@@ -7,6 +7,7 @@ export class Hero extends Serializable  {
   degats: number;
   esquive: number;
   pv: number;
+  id_weapon: string;
 
   uneMethode(): string {
     return 'le nom de mon hero' + this.name;

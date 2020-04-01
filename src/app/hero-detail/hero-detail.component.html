@@ -1,23 +1,33 @@
 <div *ngIf="hero">
   <h2>{{hero.name | uppercase}} Details</h2>
-  <div>
-    <label>Name:
-      <input [(ngModel)]="hero.name" placeholder="Nom"/>
-    </label><br>
-    <label>Attaque:
-      <input type="number" min="0" [(ngModel)]="hero.attaque" placeholder="0"/>
-    </label><br>
-    <label>Dégats:
-      <input type="number" min="0" [(ngModel)]="hero.degats" placeholder="0"/>
-    </label><br>
-    <label>Esquive:
-      <input type="number" min="0" [(ngModel)]="hero.esquive" placeholder="0"/>
-    </label><br>
-    <label>PV:
-      <input type="number" min="0" [(ngModel)]="hero.pv" placeholder="0"/>
-    </label><br>
+  <div class="container-fluid">
+    <p>Points de compétence restant : {{restant}} </p>
+    <form [formGroup]="formHero" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Name:
+          <input [(ngModel)]="hero.name" placeholder="Nom" formControlName="nom"/>
+        </label><br>
+        <label>Attaque:
+          <input type="number" min="0" max="{{restant + this.formHero.get('attaque').value}}" [(ngModel)]="hero.attaque" formControlName="attaque"/>
+        </label><br>
+        <label>Dégats:
+          <input type="number" min="0" max="{{restant + this.formHero.get('degats').value}}" [(ngModel)]="hero.degats" placeholder="0" formControlName="degats"/>
+        </label><br>
+        <label>Esquive:
+          <input type="number" min="0" max="{{restant + this.formHero.get('esquive').value}}" [(ngModel)]="hero.esquive" placeholder="0" formControlName="esquive"/>
+        </label><br>
+        <label>PV:
+          <input type="number" min="0" max="{{restant + this.formHero.get('pv').value}}" [(ngModel)]="hero.pv" placeholder="0" formControlName="pv"/>
+        </label><br>
+        <label>Arme:
+          <select [(ngModel)]="hero.id_weapon" formControlName="arme">
+            <option> Aucune arme</option>
+            <option *ngFor="let weapon of weapon" value="{{weapon.id}}"> {{weapon.name}}</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit" name="modifier" [disabled]="!formHero.valid">Enregistrer</button>
+    </form>
+      <button (click)="goBack()">Retour à la liste</button>
   </div>
-  <button (click)="goBack()">Retour à la liste</button>
-
 </div>
-

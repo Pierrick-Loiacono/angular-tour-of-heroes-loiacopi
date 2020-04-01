@@ -56,7 +56,7 @@ export class WeaponService {
           // Get document data
           const data = item.payload.data();
 
-          // New Hero
+          // New Weapon
           const weapon = new Weapon().fromJSON(data);
           weapon.id = id;
 
@@ -68,7 +68,7 @@ export class WeaponService {
 
   // Ajout d'un héro
   addWeapon(weapon: Weapon) {
-    this.db.collection<Hero>(WeaponService.url).add(Object.assign({}, weapon));
+    this.db.collection<Weapon>(WeaponService.url).add(Object.assign({}, weapon));
   }
 
   // Modification d'un héro

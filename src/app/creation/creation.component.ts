@@ -5,6 +5,8 @@ import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Hero} from '../data/hero';
 import {HeroService} from '../service/hero.service';
+import {WeaponService} from '../service/weapon.service';
+import {Weapon} from '../data/weapon';
 
 
 @Component({
@@ -15,6 +17,7 @@ import {HeroService} from '../service/hero.service';
 export class CreationComponent implements DoCheck, OnInit {
 
   hero: Hero;
+  weapon: Weapon[];
   restant: number;
   valide: boolean;
 
@@ -25,9 +28,15 @@ export class CreationComponent implements DoCheck, OnInit {
     pv: ['', Validators.required],
     esquive: ['', Validators.required],
     degats: ['', Validators.required],
+    arme: ['', Validators.required],
   });
 
-  constructor(private form: FormBuilder, private heroService: HeroService, private router: Router) {
+  constructor(
+    private form: FormBuilder,
+    private heroService: HeroService,
+    private router: Router,
+    private weaponService: WeaponService,
+  ) {
     this.hero = new Hero();
     this.restant = 40;
   }
@@ -46,6 +55,7 @@ export class CreationComponent implements DoCheck, OnInit {
     this.formHero.get('degats').setValue(1);
     this.formHero.get('esquive').setValue(1);
     this.formHero.get('pv').setValue(1);
+    this.getWeapons();
   }
 
   // Action effectuée à l'envoie du formulaire
@@ -59,10 +69,15 @@ export class CreationComponent implements DoCheck, OnInit {
       this.hero.degats = this.formHero.get('degats').value;
       this.hero.esquive = this.formHero.get('esquive').value;
       this.hero.pv = this.formHero.get('pv').value;
+      this.hero.id_weapon = this.formHero.get('arme').value;
       this.heroService.addHero(this.hero);
       this.router.navigate(['/heroes']);
     }
+  }
 
+  getWeapons(): void {
+    this.weaponService.getWeapons()
+      .subscribe(weapon => this.weapon = weapon);
   }
 
 }
