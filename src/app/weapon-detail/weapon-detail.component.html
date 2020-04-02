@@ -1,0 +1,39 @@
+<h2>Nouvelle arme</h2>
+<div class="container-fluid">
+  <p>La somme des statistiques doit être égal à 0 </p>
+  <p>Somme des statistiques : {{restant}} </p>
+  <form [formGroup]="formWeapon" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>
+        Nom
+        <input type="text" class="form-control" [(ngModel)]="weapon.name" formControlName="nom">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Attaque
+        <input type="number" min="-5" max="5" class="form-control" [(ngModel)]="weapon.attaque" formControlName="attaque">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Dégats
+        <input type="number" min="-5" max="5" class="form-control" [(ngModel)]="weapon.degats" formControlName="degats">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Esquive
+        <input type="number" min="-5" max="5" class="form-control" [(ngModel)]="weapon.esquive" formControlName="esquive">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        PV
+        <input type="number" min="-5" max="5" class="form-control" [(ngModel)]="weapon.pv" formControlName="pv">
+      </label>
+    </div>
+    <button type="submit" name="creer" [disabled]="!formWeapon.valid">Créer</button>
+  </form>
+</div>
+

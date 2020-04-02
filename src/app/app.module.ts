@@ -17,6 +17,7 @@ import {CreationComponent} from './creation/creation.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {WeaponsComponent} from './weapons/weapons.component';
 import {CreateWeaponComponent} from './create-weapon/create-weapon.component';
+import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {CreateWeaponComponent} from './create-weapon/create-weapon.component';
     CreationComponent,
     WeaponsComponent,
     CreateWeaponComponent,
+    WeaponDetailComponent,
   ],
   imports: [
     BrowserModule,
