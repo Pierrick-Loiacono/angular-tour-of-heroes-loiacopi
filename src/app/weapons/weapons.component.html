@@ -1,13 +1,41 @@
 <h2>Les armes</h2>
 <!-- Liste des héros -->
-<ul class="list-group list-group-flush">
-  <li *ngFor="let weapon of weapons">
-    <a class="list-group-item list-group-item-action" routerLink="/detail/{{weapon.id}}">
-      {{weapon.name}}
-    </a>
-  </li>
-</ul>
-<a routerLink="/weapons/new">Créer une arme</a>
-
+<a class="btn btn-info" routerLink="/weapons/new">Créer une arme</a>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Nom</th>
+    <th scope="col">Attaque</th>
+    <th scope="col">PV</th>
+    <th scope="col">Degats</th>
+    <th scope="col">Esquive</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let weapon of weapons">
+    <td>
+      <a routerLink="/detail/{{weapon.id}}">
+        {{weapon.name}}
+      </a>
+    </td>
+    <td>
+      {{weapon.attaque}}
+    </td>
+    <td>
+      {{weapon.pv}}
+    </td>
+    <td>
+      {{weapon.degats}}
+    </td>
+    <td>
+      {{weapon.esquive}}
+    </td>
+    <td>
+      <button class="btn btn-danger" (click)="delete(weapon.id)">Supprimer</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
 <!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->

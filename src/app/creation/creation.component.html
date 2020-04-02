@@ -33,7 +33,7 @@
       </label>
     </div>
     <div class="form-group">
-      <label>Arme
+      <label>Arme <br>
         <select [(ngModel)]="hero.id_weapon" formControlName="arme">
           <option> Aucune arme</option>
           <option *ngFor="let weapon of weapon" value="{{weapon.id}}"> {{weapon.name}}</option>

@@ -1,4 +1,4 @@
-<h2>Les héros !</h2>
+<h2>Les héros</h2>
 <!-- Liste des héros -->
 <!--<ul class="list-group list-group-flush">-->
 <!--  <li *ngFor="let hero of heroes">-->
@@ -7,11 +7,16 @@
 <!--    </a>-->
 <!--  </li>-->
 <!--</ul>-->
+<a class="btn btn-info" routerLink="/heroes/new">Créer un héro</a>
 
 <table class="table table-striped">
   <thead>
   <tr>
     <th scope="col">Nom</th>
+    <th scope="col">Attaque</th>
+    <th scope="col">PV</th>
+    <th scope="col">Degats</th>
+    <th scope="col">Esquive</th>
     <th scope="col"></th>
   </tr>
   </thead>
@@ -22,13 +27,24 @@
         {{hero.name}}</a>
     </td>
     <td>
-      <button (click)="delete(hero.id)">Supprimer</button>
+        {{hero.attaque}}
+    </td>
+    <td>
+        {{hero.pv}}
+    </td>
+    <td>
+        {{hero.degats}}
+    </td>
+    <td>
+        {{hero.esquive}}
+    </td>
+    <td>
+      <button class="btn btn-danger" (click)="delete(hero.id)">Supprimer</button>
     </td>
   </tr>
   </tbody>
 </table>
 
-<a routerLink="/heroes/new">Créer un héro</a>
 
 
 <!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->

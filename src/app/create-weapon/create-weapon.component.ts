@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Weapon } from '../data/weapon';
-import { WeaponService } from '../service/weapon.service';
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Weapon} from '../data/weapon';
+import {WeaponService} from '../service/weapon.service';
 import {HeroService} from '../service/hero.service';
 import {Hero} from '../data/hero';
 
@@ -12,7 +12,8 @@ import {Hero} from '../data/hero';
   templateUrl: './create-weapon.component.html',
   styleUrls: ['./create-weapon.component.css']
 })
-export class CreateWeaponComponent implements OnInit {
+export class CreateWeaponComponent implements DoCheck, OnInit {
+  restant: number;
 
   // Formulaire avec un FormBuilder
   formWeapon = this.form.group({
@@ -23,7 +24,18 @@ export class CreateWeaponComponent implements OnInit {
     degats: ['', Validators.required],
   });
 
-  constructor(private form: FormBuilder, private weaponService: WeaponService, private router: Router) { }
+  constructor(private form: FormBuilder, private weaponService: WeaponService, private router: Router) {
+    this.restant = 0;
+  }
+
+  ngDoCheck() {
+    this.restant = (this.formWeapon.get('attaque').value + this.formWeapon.get('degats').value
+      + this.formWeapon.get('esquive').value + this.formWeapon.get('pv').value);
+
+    if (this.restant !== 0) {
+      // this.formWeapon.get('creer').disable();
+    }
+  }
 
   ngOnInit() {
   }

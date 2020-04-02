@@ -60,7 +60,6 @@ export class CreationComponent implements DoCheck, OnInit {
 
   // Action effectuée à l'envoie du formulaire
   onSubmit() {
-    // const hero = new Hero();
     if (this.restant < 0 || this.restant > 40) {
 
     } else {
