@@ -42,6 +42,7 @@ export class WeaponDetailComponent implements DoCheck, OnInit {
     }
   }
 
+  // Methode a la soumission du formulaire
   onSubmit() {
     this.weapon.name = this.formWeapon.get('nom').value;
     this.weapon.attaque = this.formWeapon.get('attaque').value;
@@ -52,6 +53,7 @@ export class WeaponDetailComponent implements DoCheck, OnInit {
     this.router.navigate(['/weapons']);
   }
 
+  // Recupere l'arme selectionné dans la liste
   getWeapon(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.weaponService.getWeapon(id)

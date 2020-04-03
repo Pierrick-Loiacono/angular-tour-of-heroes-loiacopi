@@ -12,6 +12,8 @@ import {Router} from '@angular/router';
 
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  sortBy = 'name';
+  sortDirection = 'asc';
 
   constructor(private heroService: HeroService, private router: Router
   ) {}
@@ -22,12 +24,34 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => this.heroes = this.doSort( heroes ));
   }
 
   delete(id): void {
     this.heroService.deleteHero(id);
     this.router.navigate(['/heroes']);
+  }
+
+  // Tri en fonction de l'attribut voulu (clic sur l'attribut dans la liste)
+  setSort(by): void {
+    if ( this.sortBy === by ) {
+      this.sortDirection = ( this.sortDirection === 'desc' ? 'asc' : 'desc' );
+    } else {
+      this.sortDirection = 'asc';
+    }
+    this.sortBy = by;
+
+    this.heroes = this.doSort( this.heroes );
+  }
+
+  // Tri les heros par nom lors du chargement de la page
+  doSort( heroes ): Hero[] {
+    return heroes.sort( ( a, b ) => {
+      if (this.sortBy === 'name' ) {
+        return ( this.sortDirection === 'desc' ? 1 : -1 ) * ( a[this.sortBy].toLowerCase() > b[this.sortBy].toLowerCase() ? -1 : 1);
+      }
+      return ( this.sortDirection === 'desc' ? 1 : -1 ) * ( a[this.sortBy] > b[this.sortBy] ? -1 : 1);
+    } );
   }
 
 }

@@ -33,7 +33,7 @@
         <input type="number" min="-5" max="5" class="form-control" [(ngModel)]="weapon.pv" formControlName="pv">
       </label>
     </div>
-    <button type="submit" name="creer" [disabled]="!formWeapon.valid">Créer</button>
+    <button *ngIf="restant == 0"type="submit" name="creer" [disabled]="!formWeapon.valid">Créer</button>
   </form>
 </div>
 

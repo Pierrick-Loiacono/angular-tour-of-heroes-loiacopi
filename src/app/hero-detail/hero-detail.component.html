@@ -26,7 +26,7 @@
           </select>
         </label>
       </div>
-      <button type="submit" name="modifier" [disabled]="!formHero.valid">Enregistrer</button>
+      <button *ngIf="restant >= 0 && restant < 40" type="submit" name="modifier" [disabled]="!formHero.valid">Enregistrer</button>
     </form>
       <button (click)="goBack()">Retour à la liste</button>
   </div>

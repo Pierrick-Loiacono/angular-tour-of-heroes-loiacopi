@@ -31,10 +31,6 @@ export class CreateWeaponComponent implements DoCheck, OnInit {
   ngDoCheck() {
     this.restant = (this.formWeapon.get('attaque').value + this.formWeapon.get('degats').value
       + this.formWeapon.get('esquive').value + this.formWeapon.get('pv').value);
-
-    if (this.restant !== 0) {
-      // this.formWeapon.get('creer').disable();
-    }
   }
 
   ngOnInit() {

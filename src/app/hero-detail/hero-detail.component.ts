@@ -41,10 +41,6 @@ export class HeroDetailComponent implements DoCheck, OnInit {
   ngDoCheck() {
     this.restant = 40 - (this.formHero.get('attaque').value + this.formHero.get('degats').value
       + this.formHero.get('esquive').value + this.formHero.get('pv').value);
-
-    if (this.restant < 0 || this.restant > 40) {
-      this.formHero.get('creer').disable();
-    }
   }
 
   ngOnInit() {
