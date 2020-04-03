@@ -1,6 +1,6 @@
 <h2>Nouveau héro</h2>
 <div class="container-fluid">
-  <p>Points de compétence restant : {{restant}} </p>
+  <p id="points">Points de compétence restant : {{restant}} </p>
   <form [formGroup]="formHero" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label>
@@ -40,7 +40,7 @@
         </select>
       </label>
     </div>
-    <div *ngIf="restant > 0"> Il reste des points à attribuer</div>
+    <div *ngIf="restant > 0" id="pointsRestant"> Il reste des points à attribuer</div>
     <button *ngIf="restant >= 0 && restant < 40" type="submit" name="creer" [disabled]="!formHero.valid">Créer</button>
 
   </form>

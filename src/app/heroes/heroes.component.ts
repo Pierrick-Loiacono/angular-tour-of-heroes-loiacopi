@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../data/hero';
 import { HeroService } from '../service/hero.service';
 import {Router} from '@angular/router';
+import {WeaponService} from '../service/weapon.service';
+import {Weapon} from '../data/weapon';
 
 @Component({
   selector: 'app-heroes',
@@ -12,10 +14,11 @@ import {Router} from '@angular/router';
 
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  weaponName: string;
   sortBy = 'name';
   sortDirection = 'asc';
 
-  constructor(private heroService: HeroService, private router: Router
+  constructor(private heroService: HeroService, private router: Router, private weaponService: WeaponService
   ) {}
 
   ngOnInit() {

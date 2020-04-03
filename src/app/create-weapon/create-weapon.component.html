@@ -1,7 +1,7 @@
 <h2>Nouvelle arme</h2>
 <div class="container-fluid">
-  <p>La somme des statistiques doit être égal à 0 </p>
-  <p>Somme des statistiques : {{restant}} </p>
+  <p id="somme">La somme des statistiques doit être égal à 0 </p>
+  <p >Somme des statistiques : {{restant}} </p>
   <form [formGroup]="formWeapon" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label>

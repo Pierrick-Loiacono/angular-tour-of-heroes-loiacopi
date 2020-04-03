@@ -4,11 +4,31 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th scope="col">Nom</th>
-    <th scope="col">Attaque</th>
-    <th scope="col">PV</th>
-    <th scope="col">Degats</th>
-    <th scope="col">Esquive</th>
+    <th scope="col">
+      <button type="button" class="btn btn-link" (click)="setSort( 'name' )">
+        Nom {{ sortBy === 'name' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
+      </button>
+    </th>
+    <th scope="col">
+      <button type="button" class="btn btn-link" (click)="setSort( 'attaque' )">
+        Attaque {{ sortBy === 'attaque' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
+      </button>
+    </th>
+    <th scope="col">
+      <button type="button" class="btn btn-link" (click)="setSort( 'pv' )">
+        PV {{ sortBy === 'pv' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
+      </button>
+    </th>
+    <th scope="col">
+      <button type="button" class="btn btn-link" (click)="setSort( 'degats' )">
+        Degats {{ sortBy === 'degats' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
+      </button>
+    </th>
+    <th scope="col">
+      <button type="button" class="btn btn-link" (click)="setSort( 'esquive' )">
+        Esquive {{ sortBy === 'esquive' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
+      </button>
+    </th>
     <th scope="col"></th>
   </tr>
   </thead>
