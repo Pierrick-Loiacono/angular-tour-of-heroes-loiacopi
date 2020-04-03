@@ -4,20 +4,24 @@
     <p>Points de compétence restant : {{restant}} </p>
     <form [formGroup]="formHero" (ngSubmit)="onSubmit()">
       <div>
-        <label>Name:
+        <label>Nom:
           <input [(ngModel)]="hero.name" placeholder="Nom" formControlName="nom"/>
         </label><br>
         <label>Attaque:
-          <input type="number" min="0" max="{{restant + this.formHero.get('attaque').value}}" [(ngModel)]="hero.attaque" formControlName="attaque"/>
+          <input type="number" min="1" max="{{restant + this.formHero.get('attaque').value}}" [(ngModel)]="hero.attaque"
+                 formControlName="attaque"/>
         </label><br>
         <label>Dégats:
-          <input type="number" min="0" max="{{restant + this.formHero.get('degats').value}}" [(ngModel)]="hero.degats" placeholder="0" formControlName="degats"/>
+          <input type="number" min="1" max="{{restant + this.formHero.get('degats').value}}" [(ngModel)]="hero.degats"
+                 formControlName="degats"/>
         </label><br>
         <label>Esquive:
-          <input type="number" min="0" max="{{restant + this.formHero.get('esquive').value}}" [(ngModel)]="hero.esquive" placeholder="0" formControlName="esquive"/>
+          <input type="number" min="1" max="{{restant + this.formHero.get('esquive').value}}" [(ngModel)]="hero.esquive"
+                 formControlName="esquive"/>
         </label><br>
         <label>PV:
-          <input type="number" min="0" max="{{restant + this.formHero.get('pv').value}}" [(ngModel)]="hero.pv" placeholder="0" formControlName="pv"/>
+          <input type="number" min="1" max="{{restant + this.formHero.get('pv').value}}" [(ngModel)]="hero.pv"
+                 formControlName="pv"/>
         </label><br>
         <label>Arme:
           <select [(ngModel)]="hero.id_weapon" formControlName="arme">
@@ -26,8 +30,10 @@
           </select>
         </label>
       </div>
-      <button *ngIf="restant >= 0 && restant < 40" type="submit" name="modifier" [disabled]="!formHero.valid">Enregistrer</button>
+      <button *ngIf="restant >= 0 && restant < 40" type="submit" name="modifier" [disabled]="!formHero.valid">
+        Enregistrer
+      </button>
     </form>
-      <button (click)="goBack()">Retour à la liste</button>
+    <button (click)="goBack()">Retour à la liste</button>
   </div>
 </div>
